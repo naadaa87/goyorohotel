@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://goyoro.kr/sitemap.xml
+Sitemap: https://goyorohotel.pages.dev/sitemap.xml

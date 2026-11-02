@@ -5,6 +5,23 @@
 
 ---
 
+## ⚠️ 파일을 올릴 때 주의할 점
+
+**폴더 구조를 반드시 그대로 유지해야 합니다.**
+
+GitHub 웹사이트에서 파일을 드래그해 올리면 `assets/` 폴더가 풀려서
+모든 파일이 루트에 흩어집니다. 이렇게 되면 HTML이 CSS와 이미지를 찾지 못해
+글자만 나오는 화면이 됩니다.
+
+안전한 방법은 둘 중 하나입니다.
+
+- **폴더째 드래그** — 개별 파일이 아니라 `assets` 폴더 자체를 끌어다 놓습니다.
+- **GitHub Desktop 사용** — 폴더를 복사해 넣고 Commit → Push. 구조가 깨지지 않습니다.
+
+올린 뒤에는 저장소 화면에 `assets` 폴더가 보이는지 꼭 확인해 주세요.
+
+---
+
 ## 1. 폴더 구조
 
 ```
@@ -78,8 +95,13 @@ git push -u origin main
 Pages 프로젝트 → **Custom domains** → **Set up a domain** 에서 `goyoro.kr` 을 추가합니다.
 도메인이 Cloudflare에 등록되어 있으면 DNS 레코드가 자동으로 생성됩니다.
 
-도메인을 붙인 뒤에는 **`build/layout.py` 상단의 `SITE` 값과 각 HTML의 canonical·og:url을
-실제 도메인으로 맞춰 주세요.** 현재는 `https://goyoro.kr` 로 되어 있습니다.
+현재 모든 HTML의 canonical·og:url과 `sitemap.xml`·`robots.txt` 는
+`https://goyorohotel.pages.dev` 로 맞춰져 있습니다.
+`goyoro.kr` 같은 도메인을 붙이면 아래 한 줄로 일괄 교체하시면 됩니다.
+
+```bash
+sed -i 's|https://goyorohotel.pages.dev|https://goyoro.kr|g' *.html sitemap.xml robots.txt
+```
 
 ---
 
